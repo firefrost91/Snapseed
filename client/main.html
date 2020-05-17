@@ -1,0 +1,120 @@
+<head>
+  <title>Snapseed</title
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+  <div class="container">
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="Add Image">Add your Image</h4>
+        </div>
+        <div class="modal-body">
+          <p>{{> image_add_form }}</p>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+
+<template name="ApplicationLayout">
+{{> yield "navbar"}}
+{{> yield "welcome"}}
+{{> yield "main"}}
+
+</template>
+<template name="image">
+  <h3>{{img_alt}}</h3>
+<img src="/{{img_src}}"/>
+
+</template>
+<template name="front">
+  <div class="front">
+    <div class="banner-text">
+    <h1 >Welcome To Snapseed</h1>
+    <p>The perfect Image Sharing Platform</p>
+    <button type="button" name="button" class="btn btn-info"><a href="/images" >Enter</a></button>
+    </div>
+  <div class="animation-area">
+    <ul class="box-area">
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+    </ul>
+</div>
+    </div>
+</template>
+<template name="welcome">
+
+</template>
+<template name="navbar">
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">   <img id="logo" src="logo.svg"/></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class=" navlink">
+          {{#if currentUser}}
+         <button type="button" class="btn-lg btn fourth" data-toggle="modal" data-target="#myModal">
+         <img class="add" src="add.svg"/></button>
+         {{/if}}</li>
+           <li class="navlink"><span class="glyphicon glyphicon-user"></span> <button class=" btn-login">{{> loginButtons}}</button></li>
+           <li class="navlink"><button class=" btn-login"><a href="/slideshow">Slideshow</a></button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</template>
+<template name="image_add_form">
+  <form class="js-add-image">
+    <input type="text" name="img_src" placeholder="Source"/>
+    <input type="text" name="img_alt" placeholder="Caption"/>
+    <button class="btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+  </form>
+</template>
+<template name="images">
+  {{#if unimagesFilter}}
+  <h4>Welcome {{username}}</h4>
+    {{/if}}
+  <h2>
+    {{#if imagesFilter}}
+  <h5>  Showing Images by {{getFilterUser}} <a href="#" class="js-unset-image-filter">Show all Images </a></h5>
+    {{/if}}
+  </h2>
+  <div class="row">
+   {{#each images}}
+    <div class="col xs-12 col-md-3" id="{{_id}}">
+<div class="thumbnail">
+      <a href="/images/{{_id}}" > <img class="img js-image" src="{{img_src}}" alt="{{img_alt}}"/></a>
+          <div class="caption">
+            <h3>Thumbnail </h3>
+            <p id="{{_id}}Rating">Rating : {{rating}}</p>
+            <p>{{> starsRating class="js-rate-image" id=_id mutable=true}}</p>
+            <p>User : <a href="#" class="js-set-image-filter"> {{getUser createdBy}}</a></p>
+            {{#if currentUser}}
+            <button class="btn btn-danger js-del-image"><img class="add" src="del.svg"/></button>
+             {{/if}}
+          </div>
+    </div>
+   </div>
+  {{/each}}
+</div>
+</template>
