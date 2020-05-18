@@ -3,6 +3,8 @@
 Full Stack development of a Reactive Image sharing platform using Meteor JS , Mongo serves as the database
 ***Note*** - *Meteor Apps cannot be deployed on gh-pages hence to see the features of App scroll down* 
 
+**Github does not allows users to post gifs of size greater than 10 MB hence gifs are recorded at lower fps due to which the animations does not appear smooth**
+
 ## Home-page
 Animations are made using CSS  . Iron router is used to route from Home page to the Main page. Main page implements conditional rendering using components of Iron Router
 
