@@ -10,5 +10,6 @@ Full Stack development of an Image sharing platform
 
 ![Add](https://user-images.githubusercontent.com/49150875/82208393-11d37100-9929-11ea-80bb-b03103c040d3.gif)
 
+![Responsiveness](https://user-images.githubusercontent.com/49150875/82210584-f9655580-992c-11ea-991e-84ec1d1f641d.gif)
 
 ![Security](https://user-images.githubusercontent.com/49150875/82208254-d5077a00-9928-11ea-8db1-045fe3e58d42.gif)
