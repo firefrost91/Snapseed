@@ -1,4 +1,4 @@
-#Snapseed
+# Snapseed
 ----------
 Full Stack development of a Reactive Image sharing platform using Meteor JS , Mongo serves as the database
 
